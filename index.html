@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Digital watch</title>
+</head>
+<body>
+    <div class="watch">
+        <span class="hours"></span>
+        <span class="AmPm"></span><br>
+        <span class="Date"></span>
+    </div>
+
+    <script>
+        function sohag(){
+            var mydate = new Date();
+
+            var hr,min = (mydate.getMinutes() < 10) ? "0" + mydate.getMinutes() : mydate.getMinutes(),
+                sec = (mydate.getSeconds() < 10) ? "0" + mydate.getSeconds() : mydate.getSeconds(),
+                A = (mydate.getHours() >= 12) ? "PM" : "AM" ;
+
+                if(mydate.getHours() == 0){
+                    hr = 12
+                }
+                else if(mydate.getHours() > 12){
+                    hr = mydate.getHours() -12;
+                }
+                else{
+                    hr = mydate.getHours();
+                }
+
+            var currentTime = hr + ":" + min + ":" + sec ;
+                
+            document.getElementsByClassName("hours")[0].innerHTML = currentTime;
+            document.getElementsByClassName("AmPm")[0].innerHTML = A;
+
+            var weak = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thurseday", "Friday", "Saturday"],
+                month = ["January", "February" ,"March", "April", "May", "Jun", "July", "August", "September", "October","Novenber", "December"],
+                day = mydate.getDate();
+
+                var currentDate = weak[mydate.getDay()] + "," + month[mydate.getDay()] + day;
+
+            document.getElementsByClassName("Date")[0].innerHTML = currentDate
+
+        }
+
+
+        sohag()
+
+        setInterval(function(){
+            sohag()
+        }, 1000);
+
+
+
+    </script>
+
+
+</body>
+</html>

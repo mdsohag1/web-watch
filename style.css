@@ -1,0 +1,23 @@
+.watch{
+    position: fixed;
+    top: 30%;
+    left: 30%;
+    width: 400px;
+    height: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 30px rgb(125,125,124);
+}
+.watch span{
+    font-size: 50px;
+    text-align: center;
+}
+.watch span:nth-child(2){
+    color: red;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.watch span:nth-child(1){
+    font-weight: bold;
+}
